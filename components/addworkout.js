@@ -13,6 +13,7 @@ import styles from "../styles/style";
 import { Picker } from "@react-native-picker/picker";
 import { Ionicons } from "@expo/vector-icons";
 import WorkoutContext from "../WorkoutContext";
+import { convertToKilometers, convertToMiles } from "../utils";
 
 const AddWorkout = () => {
   const [type, setType] = useState("Running");
@@ -20,11 +21,11 @@ const AddWorkout = () => {
   const [duration, setDuration] = useState("");
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const { workouts, setWorkouts } = useContext(WorkoutContext);
+  const { workouts, setWorkouts, unit } = useContext(WorkoutContext);
 
   const formatDate = (date) => {
     const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Add 1 because months are 0-indexed.
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear();
     return `${day}.${month}.${year}`;
   };
@@ -34,8 +35,12 @@ const AddWorkout = () => {
   };
 
   const handleSubmit = () => {
-    const numDistance = parseFloat(distance);
+    let numDistance = parseFloat(distance);
     const numDuration = parseFloat(duration);
+
+    if (unit === "Miles") {
+      numDistance = convertToKilometers(numDistance);
+    }
 
     if (numDistance <= 0 || numDuration <= 0) {
       Alert.alert("Error", "Distance and duration must be positive numbers.");
@@ -43,7 +48,7 @@ const AddWorkout = () => {
     }
 
     const newWorkout = {
-      id: Math.random().toString(), // Generate a unique id
+      id: Math.random().toString(),
       type,
       distance: numDistance,
       duration: numDuration,
@@ -51,7 +56,6 @@ const AddWorkout = () => {
     };
 
     setWorkouts((currentWorkouts) => [...currentWorkouts, newWorkout]);
-    // Clear the inputs
     setType("Running");
     setDistance("");
     setDuration("");
@@ -104,10 +108,10 @@ const AddWorkout = () => {
           display="default"
           onChange={(event, selectedDate) => {
             const currentDate = selectedDate || date;
-            setShowDatePicker(Platform.OS === "ios"); // Keep the picker open on iOS after selection
+            setShowDatePicker(Platform.OS === "ios");
             setDate(currentDate);
             if (Platform.OS === "android") {
-              setShowDatePicker(false); // Close the picker on Android after selection
+              setShowDatePicker(false);
             }
           }}
         />

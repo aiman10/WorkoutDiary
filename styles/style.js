@@ -111,4 +111,15 @@ export default StyleSheet.create({
     marginBottom: 5,
     fontWeight: "bold",
   },
+
+  //settings
+  radioButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  radioText: {
+    marginLeft: 8,
+    fontSize: 16,
+  },
 });

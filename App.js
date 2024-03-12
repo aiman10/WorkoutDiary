@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; // This is optional, for icons
+import { Ionicons } from "@expo/vector-icons";
 import styles from "./styles/style";
 import WorkoutContext from "./WorkoutContext";
 import AddWorkoutScreen from "./components/addworkout";
@@ -12,6 +12,8 @@ import SettingsScreen from "./components/settings";
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const [unit, setUnit] = useState("Kilometers");
+
   const [workouts, setWorkouts] = useState([
     {
       id: "1",
@@ -30,7 +32,7 @@ export default function App() {
   ]);
 
   return (
-    <WorkoutContext.Provider value={{ workouts, setWorkouts }}>
+    <WorkoutContext.Provider value={{ workouts, setWorkouts, unit, setUnit }}>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
