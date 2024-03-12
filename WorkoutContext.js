@@ -2,7 +2,7 @@ import React from "react";
 
 const WorkoutContext = React.createContext({
   workouts: [],
-  unit: "Kilometers",
+  unit: "Km",
   setWorkouts: () => {},
   setUnit: () => {},
 });

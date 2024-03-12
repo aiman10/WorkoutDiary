@@ -14,6 +14,7 @@ import { Picker } from "@react-native-picker/picker";
 import { Ionicons } from "@expo/vector-icons";
 import WorkoutContext from "../WorkoutContext";
 import { convertToKilometers, convertToMiles } from "../utils";
+import { Keyboard } from "react-native";
 
 const AddWorkout = () => {
   const [type, setType] = useState("Running");
@@ -35,6 +36,7 @@ const AddWorkout = () => {
   };
 
   const handleSubmit = () => {
+    Keyboard.dismiss();
     let numDistance = parseFloat(distance);
     const numDuration = parseFloat(duration);
 

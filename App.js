@@ -12,7 +12,7 @@ import SettingsScreen from "./components/settings";
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const [unit, setUnit] = useState("Kilometers");
+  const [unit, setUnit] = useState("Km");
 
   const [workouts, setWorkouts] = useState([
     {

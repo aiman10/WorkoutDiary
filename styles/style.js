@@ -111,6 +111,19 @@ export default StyleSheet.create({
     marginBottom: 5,
     fontWeight: "bold",
   },
+  listItemHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  typeText: {
+    flex: 1,
+    marginLeft: 10,
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#007AFF",
+  },
 
   //settings
   radioButton: {

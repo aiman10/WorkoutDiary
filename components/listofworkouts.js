@@ -22,7 +22,6 @@ const ListOfWorkouts = () => {
   };
 
   const WorkoutSummary = ({ workouts, unit }) => {
-    // Calculate the total distances for each workout type
     const totals = workouts.reduce((acc, workout) => {
       const workoutDistance =
         unit === "Miles" ? convertToMiles(workout.distance) : workout.distance;
@@ -66,15 +65,14 @@ const ListOfWorkouts = () => {
 
     return (
       <View style={styles.listItem}>
-        <View style={styles.iconContainer}>
+        <View style={styles.listItemHeader}>
           <FontAwesome5 name={iconName} size={24} color="#007AFF" />
-          <Text style={styles.distanceText}>{formattedDate}</Text>
+          <Text style={styles.typeText}>{item.type}</Text>
+          <Text style={styles.dateText}>{formattedDate}</Text>
         </View>
         <Text>
-          Distance: {formattedDistance}
-          {unit}
+          Distance: {formattedDistance} {unit}
         </Text>
-
         <Text>Duration: {item.duration}min</Text>
       </View>
     );

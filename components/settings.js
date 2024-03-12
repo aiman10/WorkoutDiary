@@ -7,7 +7,7 @@ import { convertToKilometers, convertToMiles } from "../utils";
 
 const Settings = () => {
   const { workouts, setWorkouts, unit, setUnit } = useContext(WorkoutContext);
-  const [selectedUnit, setSelectedUnit] = useState(unit || "Kilometers");
+  const [selectedUnit, setSelectedUnit] = useState(unit || "Km");
 
   useEffect(() => {
     setSelectedUnit(unit);
@@ -33,13 +33,9 @@ const Settings = () => {
       <Text style={styles.title}>Units</Text>
       <TouchableOpacity
         style={styles.radioButton}
-        onPress={() => handleSelectUnit("Kilometers")}>
+        onPress={() => handleSelectUnit("Km")}>
         <Ionicons
-          name={
-            selectedUnit === "Kilometers"
-              ? "radio-button-on"
-              : "radio-button-off"
-          }
+          name={selectedUnit === "Km" ? "radio-button-on" : "radio-button-off"}
           size={24}
           color="#007AFF"
         />
