@@ -8,13 +8,6 @@ const ListOfWorkouts = () => {
   const { workouts, unit } = useContext(WorkoutContext);
   const kilometerToMile = 0.621371;
 
-  const getDistance = (distance) => {
-    if (unit === "Miles") {
-      return (distance * kilometerToMile).toFixed(2);
-    }
-    return distance.toFixed(2);
-  };
-
   const getIconName = (type) => {
     switch (type) {
       case "Running":
@@ -26,6 +19,35 @@ const ListOfWorkouts = () => {
       default:
         return "body";
     }
+  };
+
+  const WorkoutSummary = ({ workouts, unit }) => {
+    // Calculate the total distances for each workout type
+    const totals = workouts.reduce((acc, workout) => {
+      const workoutDistance =
+        unit === "Miles" ? convertToMiles(workout.distance) : workout.distance;
+      acc[workout.type] = acc[workout.type] || 0;
+      acc[workout.type] += workoutDistance;
+      return acc;
+    }, {});
+    const workoutIcons = {
+      Running: "running",
+      Skiing: "skiing",
+      Swimming: "swimmer",
+    };
+
+    return (
+      <View style={styles.summaryContainer}>
+        {Object.keys(workoutIcons).map((type) => (
+          <View key={type} style={styles.summaryItem}>
+            <FontAwesome5 name={workoutIcons[type]} size={24} color="#007AFF" />
+            <Text style={styles.summaryText}>
+              {totals[type] ? totals[type].toFixed(2) : 0} {unit}
+            </Text>
+          </View>
+        ))}
+      </View>
+    );
   };
 
   const renderItem = ({ item }) => {
@@ -60,6 +82,8 @@ const ListOfWorkouts = () => {
 
   return (
     <View style={styles.container}>
+      <WorkoutSummary workouts={workouts} unit={unit} />
+
       <FlatList
         data={workouts}
         renderItem={renderItem}

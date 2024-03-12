@@ -122,4 +122,19 @@ export default StyleSheet.create({
     marginLeft: 8,
     fontSize: 16,
   },
+  summaryContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10,
+  },
+
+  summaryItem: {
+    alignItems: "center",
+    padding: 5,
+  },
+
+  summaryText: {
+    fontSize: 14,
+    marginTop: 4,
+  },
 });
