@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./styles/style";
+import { useFonts } from "expo-font";
 import WorkoutContext from "./WorkoutContext";
 import AddWorkoutScreen from "./components/addworkout";
 import ListOfWorkoutScreen from "./components/listofworkouts";
@@ -30,6 +31,17 @@ export default function App() {
       date: new Date("2021-09-02").toISOString(),
     },
   ]);
+  const [loaded] = useFonts({
+    "Comfortaa-Regular": require("./fonts/Comfortaa-Regular.ttf"),
+    "Comfortaa-Bold": require("./fonts/Comfortaa-Bold.ttf"),
+    "Comfortaa-Light": require("./fonts/Comfortaa-Light.ttf"),
+    "Comfortaa-Medium": require("./fonts/Comfortaa-Medium.ttf"),
+    "Comfortaa-SemiBold": require("./fonts/Comfortaa-SemiBold.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <WorkoutContext.Provider value={{ workouts, setWorkouts, unit, setUnit }}>

@@ -70,10 +70,12 @@ const ListOfWorkouts = () => {
           <Text style={styles.typeText}>{item.type}</Text>
           <Text style={styles.dateText}>{formattedDate}</Text>
         </View>
-        <Text>
+        <Text style={{ fontFamily: "Comfortaa-Regular" }}>
           Distance: {formattedDistance} {unit}
         </Text>
-        <Text>Duration: {item.duration}min</Text>
+        <Text style={{ fontFamily: "Comfortaa-Regular" }}>
+          Duration: {item.duration}min
+        </Text>
       </View>
     );
   };

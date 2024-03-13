@@ -7,6 +7,7 @@ export default StyleSheet.create({
     //alignItems: "center",
     justifyContent: "center",
     padding: 20,
+    fontFamily: "Comfortaa-Regular",
   },
   textInput: {
     height: 50,
@@ -17,6 +18,7 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     fontSize: 16,
+    fontFamily: "Comfortaa-Regular",
   },
   button: {
     backgroundColor: "#007AFF",
@@ -41,18 +43,19 @@ export default StyleSheet.create({
   },
   buttonTextOutline: {
     color: "#007AFF",
-    fontWeight: "bold",
+
     fontSize: 18,
+    fontFamily: "Comfortaa-Bold",
   },
   buttonText: {
     color: "white",
-    fontWeight: "bold",
     fontSize: 18,
+    fontFamily: "Comfortaa-Bold",
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
     marginBottom: 30,
+    fontFamily: "Comfortaa-Bold",
   },
   picker: {
     width: "100%",
@@ -61,12 +64,14 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: "#007AFF",
+    fontFamily: "Comfortaa-Bold",
   },
   label: {
     width: "100%",
     textAlign: "left",
     marginBottom: 5,
     fontSize: 18,
+    fontFamily: "Comfortaa-Bold",
   },
   datePickerButton: {
     width: "100%",
@@ -81,6 +86,7 @@ export default StyleSheet.create({
   },
   datePickerButtonText: {
     fontSize: 16,
+    fontFamily: "Comfortaa-Bold",
   },
 
   //list
@@ -106,34 +112,26 @@ export default StyleSheet.create({
   distanceText: {
     marginLeft: 10,
     color: "#007AFF",
+    fontFamily: "Comfortaa-Bold",
   },
   dateText: {
     marginBottom: 5,
-    fontWeight: "bold",
+
+    fontFamily: "Comfortaa-Bold",
   },
   listItemHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 10,
+    fontFamily: "Comfortaa-Bold",
   },
   typeText: {
     flex: 1,
     marginLeft: 10,
-    fontWeight: "bold",
+    fontFamily: "Comfortaa-Bold",
     fontSize: 16,
     color: "#007AFF",
-  },
-
-  //settings
-  radioButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  radioText: {
-    marginLeft: 8,
-    fontSize: 16,
   },
   summaryContainer: {
     flexDirection: "row",
@@ -149,5 +147,17 @@ export default StyleSheet.create({
   summaryText: {
     fontSize: 14,
     marginTop: 4,
+    fontFamily: "Comfortaa-Bold",
+  },
+  //settings
+  radioButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  radioText: {
+    marginLeft: 8,
+    fontSize: 16,
+    fontFamily: "Comfortaa-Bold",
   },
 });
